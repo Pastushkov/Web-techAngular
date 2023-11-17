@@ -1,0 +1,106 @@
+<mat-card>
+  <mat-card-content>
+    <h2>Log In</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="register()">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Name"
+          formControlName="name"
+          required
+        />
+        <mat-error
+          >{{validationService.getErrorMessage(getControl("name"))}}</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Surname"
+          formControlName="surname"
+          required
+        />
+        <mat-error
+          >{{validationService.getErrorMessage(getControl("surname"))}}</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Username"
+          formControlName="userName"
+          required
+        />
+        <mat-error
+          >{{validationService.getErrorMessage(getControl("userName"))}}</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+        <mat-error
+          >{{validationService.getErrorMessage(getControl("email"))}}</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="date"
+          placeholder="Date"
+          formControlName="birthday"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role" required>
+          <mat-option [value]="userRoles.Buyer">Buyer</mat-option>
+          <mat-option [value]="userRoles.Seller">Seller</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+        <mat-error
+          >{{validationService.getErrorMessage(getControl("password"))}}</mat-error
+        >
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm password"
+          formControlName="password"
+          required
+        />
+        <mat-error
+          >{{validationService.getErrorMessage(getControl("password"))}}</mat-error
+        >
+      </mat-form-field> -->
+      <div>
+        <button mat-raised-button color="primary" [disabled]="!formGroup.valid">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+  <div class="container">
+    <p>
+      Don't have an account?
+      <a href="registration" class="link-danger">Registration</a>
+    </p>
+  </div>
+</mat-card>
